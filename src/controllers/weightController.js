@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 
 const addWeightSchema = Joi.object({
     peso: Joi.number().required(),
+    pollosPesados: Joi.number().required()
 });
 
 const deleteWeightSchema = Joi.object({
@@ -21,7 +22,7 @@ const addWeight = async (req, res) => {
             });
         }
 
-        const { peso } = value;
+        const { peso ,pollosPesados} = value;
 
         // Obtener la fecha y hora actual en la zona horaria local
         const currentDate = new Date();
@@ -51,6 +52,7 @@ const addWeight = async (req, res) => {
         const nuevoPeso = await prisma.pesos.create({
             data: {
                 peso,
+                pollosPesados,
                 fecha: localISOTime, // Utilizar la fecha obtenida en formato ISO-8601
             },
         });
@@ -74,6 +76,7 @@ const getAllWeight = async (req, res) => {
                 id: true,
                 peso: true,
                 fecha: true,
+                pollosPesados:true
             },
         });
 

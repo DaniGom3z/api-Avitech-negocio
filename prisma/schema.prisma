@@ -32,6 +32,7 @@ model Pesos {
   id    Int      @id @default(autoincrement())
   peso    Float
   fecha      DateTime @default(now())
+  pollosPesados Int
   ganancia  Ganancia[]
 }
 
