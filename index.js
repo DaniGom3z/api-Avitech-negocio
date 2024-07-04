@@ -8,6 +8,7 @@ import waterConsumptionRouter  from "./src/routes/waterConsumptionRouter.js";
 import foodConsumptionRouter  from "./src/routes/foodConsumptionRouter.js";
 import weightRouter  from "./src/routes/weightRouter.js";
 import profitsRouter  from "./src/routes/profitsRouter.js";
+import { swaggerDocs } from "./src/documentation/swagger.js"; 
 
 const app = express();
 
@@ -25,7 +26,11 @@ app.use("/consumo_alimentos", foodConsumptionRouter);
 app.use("/pesos",weightRouter);
 app.use("/ganancias",profitsRouter);
 
+
+
+
 app.listen(process.env.PORT, () => {
   console.log("Server online in port: " + process.env.PORT);
+  swaggerDocs(app, process.env.PORT);
 });
 
