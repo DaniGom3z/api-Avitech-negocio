@@ -52,7 +52,59 @@ const foodConsumptionRouter = express.Router();
  *                 message:
  *                   type: string
  *                   example: Ocurrió un error al obtener la lista de consumo de alimentos
+ *   post:
+ *     tags:
+ *       - Food Consumption
+ *     summary: Consumo de alimentos
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               cantidad:
+ *                 type: integer
+ *                 example: 100
+ *     responses:
+ *       201:
+ *         description: Consumo de alimento añadido correctamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Consumo de alimento añadido correctamente
+ *       400:
+ *         description: Datos de entrada inválidos o ya se ingresó el consumo de alimento el día de hoy
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Datos de entrada inválidos
+ *                 error:
+ *                   type: string
+ *                   example: Cantidad es requerida
+ *       500:
+ *         description: Ocurrió un error al añadir el consumo de alimento
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Ocurrió un error al añadir el consumo de alimento
  */
+
 foodConsumptionRouter.get('/', verificarJwt, Food.getFoodConsumption);
+foodConsumptionRouter.post('/', verificarJwt, Food.postFoodConsumption);
 
 export default foodConsumptionRouter;

@@ -41,7 +41,6 @@ CREATE TABLE `Pesos` (
 -- CreateTable
 CREATE TABLE `Consumo_de_alimento` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `id_alimento` INTEGER NOT NULL,
     `cantidad` DOUBLE NOT NULL,
     `fecha` DATETIME(3) NOT NULL,
 
@@ -71,9 +70,6 @@ CREATE TABLE `Ganancia` (
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- AddForeignKey
-ALTER TABLE `Consumo_de_alimento` ADD CONSTRAINT `Consumo_de_alimento_id_alimento_fkey` FOREIGN KEY (`id_alimento`) REFERENCES `Alimentos`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Ganancia` ADD CONSTRAINT `Ganancia_pesoId_fkey` FOREIGN KEY (`pesoId`) REFERENCES `Pesos`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

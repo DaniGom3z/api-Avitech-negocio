@@ -38,8 +38,6 @@ model Pesos {
 
 model Consumo_de_alimento {
   id         Int        @id @default(autoincrement())
-  alimentos  Alimentos  @relation(fields: [id_alimento], references: [id])
-  id_alimento    Int
   cantidad Float
   fecha DateTime
 }
@@ -53,7 +51,6 @@ model Alimentos {
   fechaFinal            DateTime?
   createdAt            DateTime              @default(now())
   updateAt             DateTime?              @default(now())
-  consumos_de_alimento  Consumo_de_alimento[]
   ganancias             Ganancia[]
 }
 

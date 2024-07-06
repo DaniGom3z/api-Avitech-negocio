@@ -47,9 +47,60 @@ import Water from '../controllers/waterConsumptionController.js';
  *               properties:
  *                 message:
  *                   type: string
- *                   example: "Ocurrió un error al obtener la lista de Consumo de agua"
+ *                   example: "Ocurrió un error al obtener la lista de consumo de agua"
+ *   post:
+ *     tags:
+ *       - Water Consumption
+ *     summary: Registro de consumo de agua
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               cantidad:
+ *                 type: number
+ *                 example: 15.5
+ *     responses:
+ *       201:
+ *         description: Consumo de agua añadido correctamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Consumo de agua añadido correctamente"
+ *       400:
+ *         description: Datos de entrada inválidos o ya se ingresó el consumo de agua el día de hoy
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Datos de entrada inválidos"
+ *                 error:
+ *                   type: string
+ *                   example: "Cantidad es requerida"
+ *       500:
+ *         description: Ocurrió un error al añadir el consumo de agua
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Ocurrió un error al añadir el consumo de agua"
  */
 
 waterConsumptionRouter.get('/', verificarJwt, Water.getWaterConsumption);
+waterConsumptionRouter.post('/', verificarJwt, Water.postWaterConsumption);
 
 export default waterConsumptionRouter;

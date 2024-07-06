@@ -49,7 +49,7 @@ const swaggerDocs = (app, port) => {
     res.setHeader("Content-Type", "application/json");
     res.send(swaggerSpec);
   });
-  console.log(`Version 1 docs are available at http://localhost:${port}/docs`);
+  console.log(`Version 1 docs are available at https://localhost:${port}/docs`);
 };
 
 export { swaggerDocs };
