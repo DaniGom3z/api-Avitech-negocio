@@ -5,7 +5,7 @@ const jwtSecret = process.env.SECRET_KEY;
 
 
 const verificarJWT = (req, res, next) => {
-    const token = req.get('Authorization');
+    const token = req.get('Token');
 
     jwt.verify(token, jwtSecret, (err, decode) => {
         if (err) {

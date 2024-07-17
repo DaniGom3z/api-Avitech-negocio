@@ -93,23 +93,10 @@ import Food from '../controllers/foodController.js';
  *           schema:
  *             type: object
  *             properties:
- *               nombre:
- *                 type: string
- *               precio:
- *                 type: number
- *               cantidad:
- *                 type: number
- *               fechaInicial:
- *                 type: string
- *                 format: date
  *               fechaFinal:
  *                 type: string
  *                 format: date
  *             example:
- *               nombre: Pollo
- *               precio: 12
- *               cantidad: 120
- *               fechaInicial: "2024-07-04"
  *               fechaFinal: "2024-07-15"
  *     responses:
  *       200:
