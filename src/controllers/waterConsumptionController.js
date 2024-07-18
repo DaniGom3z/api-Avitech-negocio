@@ -16,6 +16,10 @@ const getWaterConsumption = async (req,res) =>{
                 cantidad: true,
                 fecha:true
             },
+            orderBy: {
+                fecha :"desc"
+            },
+            take: 7
         });
 
         return res.status(200).json({

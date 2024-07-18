@@ -20,9 +20,8 @@ const options = {
             securitySchemes: {
                 bearerAuth: {  
                     type: "apiKey",
-                    name: "Authorization",
+                    name: "Token",
                     in: "header",
-                    description: "Enter the token with the `Bearer: ` prefix, e.g., 'Bearer abcde12345'.",
                 },
             },
         },
@@ -49,7 +48,7 @@ const swaggerDocs = (app, port) => {
     res.setHeader("Content-Type", "application/json");
     res.send(swaggerSpec);
   });
-  console.log(`Version 1 docs are available at https://localhost:${port}/docs`);
+  console.log(`Version 1 docs are available at https://apinegocio.serveblog.net:${port}/docs`);
 };
 
 export { swaggerDocs };

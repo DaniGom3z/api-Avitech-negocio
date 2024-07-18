@@ -7,14 +7,9 @@ const addFoodSchema = Joi.object({
     nombre: Joi.string().required(),
     precio: Joi.number().required(),
     cantidad: Joi.number().required(),
-    fechaInicial: Joi.date(),
-    fechaFinal: Joi.date().iso()
 });
 
 const updateFoodSchema = Joi.object({
-    nombre: Joi.string().required(),
-    precio: Joi.number().required(),
-    cantidad: Joi.number().required(),
     fechaInicial: Joi.date(),
     fechaFinal: Joi.date().iso()
 });
@@ -59,7 +54,6 @@ const addFood = async (req, res) => {
                 nombre,
                 precio,
                 cantidad,
-                fechaInicial,
                 createdAt 
             }
         });
@@ -97,9 +91,6 @@ const updateFood = async (req, res) => {
         const alimentoActualizado = await prisma.alimentos.update({
             where: { id: id },  
             data: {
-                nombre,
-                precio,
-                cantidad,
                 fechaInicial,
                 fechaFinal,
                 updateAt

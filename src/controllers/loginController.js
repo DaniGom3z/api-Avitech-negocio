@@ -36,7 +36,6 @@ const login = async (req, res) => {
             privateKey,
             { 
                 algorithm: process.env.ALGORITMO,
-                expiresIn: process.env.TIEMPO_DE_EXPIRACION 
             }
         );
 
