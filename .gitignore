@@ -1,6 +1,7 @@
 node_modules
-private.pem
-public.pem
+
+# Ignorar archivos .pem
+*.pem
 
 # Keep environment variables out of version control
 .env
